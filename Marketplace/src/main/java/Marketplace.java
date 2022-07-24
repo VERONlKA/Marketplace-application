@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Marketplace implements Market {
     public List<User> users = new ArrayList<>();
     public List<Product> products = new ArrayList<>();
-    char u = 'u';
     int id = 1;
     int money;
     @Override
@@ -15,7 +14,7 @@ public class Marketplace implements Market {
 
     @Override
     public int setIdUser() {
-        return u+id++;
+        return id++;
     }
 
     @Override
@@ -54,10 +53,8 @@ public class Marketplace implements Market {
                 user.setAmountOfMoney(money);
                 user.addProduct(product);
                 product.addUser(user);
-            }else{
-                System.out.println("Incorrect id");
-            throw new Exception();}
-        }
+
+        }}
         System.out.println(user.getName()+" "+user.getLastname()+" - "+user.getAmountOfMoney());
         user.displayListOfProducts();
         System.out.println("Operation is succesful");
@@ -75,26 +72,21 @@ public class Marketplace implements Market {
             if (id == user.getId()) {
                 System.out.println(user.getName()+" "+user.getLastname()+" - "+user.getAmountOfMoney());
                 return user;
-            }else {
-                throw new Exception();
-            }
-
-        }
-        return null;
+        }}
+        throw new Exception();
     }
 
     @Override
     public Product findByIdProduct(int id) throws Exception {
+        if(products.size()==0){
+            throw new Exception();
+        }
         for (Product product : products) {
             if (id == product.getId()) {
                 System.out.println(product.getName()+" - "+product.getPrice());
                 return product;
-            }else{
-                throw new Exception();
-            }
-
-        }
-        return null;
+        }}
+        throw new Exception();
     }
 
 

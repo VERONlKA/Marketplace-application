@@ -52,6 +52,7 @@ public class UserMarket implements User {
 
     @Override
     public void displayListOfProducts() {
+        System.out.println("List of products:");
         for (Product product: userProducts) {
             System.out.println(product.getName());
         }

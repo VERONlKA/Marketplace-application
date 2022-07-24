@@ -40,6 +40,7 @@ public class ProductMarket implements Product {
 
     @Override
     public void displayListOfBuyers() {
+        System.out.println("Users who bought:");
         for (User user: users) {
             System.out.println(user.getName()+" "+user.getLastname());
         }

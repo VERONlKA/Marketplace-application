@@ -9,25 +9,25 @@ public class Main {
         int amountOfMoney, id, price;
         List<Product> products = new ArrayList<>();
         List<User> user = new ArrayList<>();
-
-        Scanner scanner = new Scanner(System.in);
         int i = 0;
-        int j = 10;
+        int j = 5;
+
         do{
             System.out.println("Choose option:");
             System.out.println("1. Add user;\n2. Add product;\n3. Display list of users;\n4. Display list of products;\n5. Buy product;\n6. List of user's purchased products;\n7. List of buyers of product;\n8. Delete user;\n9. Delete product;\n10. Exit");
             Scanner sc = new Scanner(System.in);
             try{
                 i = sc.nextInt();
+                sc.nextLine();
             switch (i){
                 case 1:
                 System.out.print("Input name: ");
-                name = scanner.nextLine();
+                name = sc.nextLine();
                 if(name.isEmpty()){
                     throw new Exception();
                 }
                 System.out.print("Input lastname: ");
-                lastname = scanner.nextLine();
+                lastname = sc.nextLine();
                     if(lastname.trim().isEmpty()){
                         throw new Exception();
                     }
@@ -42,7 +42,7 @@ public class Main {
                 break;
                 case 2:
                     System.out.print("Input name: ");
-                    name = scanner.nextLine();
+                    name = sc.nextLine();
                     if(name.trim().isEmpty()){
                         throw new Exception("name");
                     }
@@ -94,7 +94,7 @@ public class Main {
 
             }}  catch (Exception e) {
                 j--;
-                System.out.println("You have entered incorrect"+e.getMessage()+", please try again, you have "+j+" tries");
+                System.out.println("You have entered incorrect data, please try again, you have "+j+" tries");
             }
 
         }while(i!=10 && j>0);
